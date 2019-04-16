@@ -1,4 +1,4 @@
-class Admin::ItemController < ApplicationController
+class Admin::ItemController < Admin::Base
   def new
   end
 

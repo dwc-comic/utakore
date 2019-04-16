@@ -1,4 +1,4 @@
-class User::InquerysController < ApplicationController
+class User::InquerysController < User::Base
   def index
   end
 end
