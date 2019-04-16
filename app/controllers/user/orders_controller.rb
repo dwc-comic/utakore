@@ -1,4 +1,5 @@
-class User::OrdersController < ApplicationController
+class User::OrdersController < User::Base
+
   def index
   end
 
