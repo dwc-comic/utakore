@@ -1,4 +1,4 @@
-class User::PurchacesController < ApplicationController
+class User::PurchacesController < User::Base
   def index
   end
 

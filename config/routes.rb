@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'mains/top'
+  get 'mains/about'
   namespace :user do
     get 'purchaces/index'
     get 'purchaces/pay'
