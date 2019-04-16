@@ -1,5 +1,6 @@
 class Admin::ItemController < Admin::Base
   def new
+
   end
 
   def index
@@ -10,4 +11,9 @@ class Admin::ItemController < Admin::Base
 
   def edit
   end
+
+  private
+  	def item_params
+  		params.require(:item).permit(:title, :image, :artists, :lebel, :genre, :price, :stock)
+  	end
 end
