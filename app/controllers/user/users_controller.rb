@@ -12,6 +12,7 @@ class User::UsersController < User::Base
     user.update(user_params)
     redirect_to user_path(user.id)
   end
+
   def user_params
         params.require(:user).permit([:name, :email, :kana, :phone_number, :postal_code, :home_address])
   end
