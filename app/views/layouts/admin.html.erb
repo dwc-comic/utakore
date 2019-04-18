@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>namespace - admin</title>
+    <title>Utakore - admin</title>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'  %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<body>
-<% content_for :content do %>
-  <%= yield %>
-<% end %>
-<%= render template: "layouts/application" %>
-</body>
+  <header class="navbar navbar-inverse">
+    <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <span>うたコレ 管理者</span>
+    </nav>
+      <nav class="nav-list">
+        <% if admin_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to " Home", admin_orders_index_path, class: "glyphicon glyphicon-home home" %></li>
+            <li><%= link_to " 新規商品登録", admin_item_new_path, class: "glyphicon glyphicon-shooping-cart new_item" %></li>
+            <li><%= link_to " 顧客一覧", admin_users_index_path, class: "glyphicon glyphicon-user customer" %></li>
+            <li><%= link_to " logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %></li>
+          </ul>
+        <% else %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to " Home", user_items_index_path, class: "glyphicon glyphicon-home home" %></li>
+            <li><%= link_to " About", mains_about_path, class: "glyphicon glyphicon-link about" %></li>
+            <!-- <li><%= link_to " signup", new_user_registration_path, class: "glyphicon glyphicon-edit sign_up" %></li> -->
+            <li><%= link_to " login", new_user_session_path, class: "glyphicon glyphicon-log-in sign_in" %></li>
+          </ul>
+        <% end %>
+      </nav>
+    </div>
+  </header>
+　<body>
+　<% content_for :content do %>
+   <%= yield %>
+　<% end %>
+　<%= render template: "layouts/application" %>
+　</body>
 </html>
