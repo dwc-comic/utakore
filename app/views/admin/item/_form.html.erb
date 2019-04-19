@@ -1,0 +1,21 @@
+<%= form_for @item,:url => {:action => :create} do |f| %>
+  <div class="field">
+    <%= f.label :title, "title" %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :item_price, "price" %>
+    <%= f.text_field :item_price %>
+  </div>
+  <h3>Disc</h3>
+  <div id="discs">
+    <%= f.fields_for :discs do |disc| %>
+      <%= render 'disc_fields', f: disc %>
+    <% end %>
+    <div id="links">
+
+      <%= link_to_add_association 'add disc',f, :discs %>
+    </div>
+    <%= f.submit %>
+  </div>
+<% end %>
