@@ -3,6 +3,7 @@
 <h2>顧客情報</h2>
 <p></p>
 <% @users. each do |user| %>
-    <span><%= user.name %></span>
-    <%=link_to admin_users_show,"admin_users_show" =%>
+    <p><%= @user.name %></p>
+    <p><%= @user.kana %></p>
  <% end %>
+<%= link_to "詳細",admin_user_show(user.id) %>
