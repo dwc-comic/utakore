@@ -52,17 +52,6 @@ ActiveRecord::Schema.define(version: 2019_04_19_134205) do
     t.string "disc_number"
   end
 
-  create_table "domains", force: :cascade do |t|
-    t.string "name"
-    t.integer "phone_number"
-    t.string "email"
-    t.integer "postal_code"
-    t.string "home_address"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "item_id"
