@@ -4,4 +4,3 @@ class Admin::ItemsController < Admin::Base
   end
 
   def show
-  end

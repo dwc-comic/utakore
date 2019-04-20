@@ -1,16 +1,24 @@
-<h1>Admin::Users#show</h1>
-
-     <!-- <%=link_to "編集する", "edit_admin_user(user.id)" %> -->
-<p>Find me in app/views/admin/users/show.html.erb</p>
-
-<p><%= @user.name %></p>
-<p><%= @user.kana %></p>
-<p><%= @user.email %></p>
-<p><%= @user.phone_number %></p>
-<p><%= @user.postal_code%></p>
-<p><%= @user.home_address %></p>
-<p><%= @user.password %></p>
-<% if @user.admin.id == current_user.id %>
-
-<p><%= link_to '編集', edit_admin_users_path(@user) %></p>
-<% end %>
+<div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-user style-1 rounded has-shadow-1">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							        <div class="actions row">
+								    	<h1>個人情報詳細ページ</h1>
+									    <p><%= @user.name %></p>
+										<p><%= @user.kana %></p>
+										<p><%= @user.email %></p>
+										<p><%= @user.phone_number %></p>
+										<p><%= @user.postal_code%></p>
+										<p><%= @user.home_address %></p>
+										<p><%= @user.password %></p>
+										<p><%= link_to '編集', edit_admin_user_path(@user) %></p>
+										<%= link_to 'ログアウト',  destroy_admin_session_path, method: :delete %>
+ 									    <%= link_to 'サインアップ', new_admin_registration_path %>
+                                        <%= link_to 'ログイン', new_admin_session_path %>
+   									</div>
+					 </div>
+				</div>
+			</div>
+		</div>
+    </div>

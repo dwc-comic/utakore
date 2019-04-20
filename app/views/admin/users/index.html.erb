@@ -1,9 +1,25 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
-<h2>顧客情報</h2>
-<p></p>
-<% @users. each do |user| %>
-    <p><%= @user.name %></p>
-    <p><%= @user.kana %></p>
- <% end %>
-<%= link_to "詳細",admin_user_show(user.id) %>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="form-user style-1 rounded has-shadow-1">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<table class="table table-striped">
+						<div class="actions row">
+
+							<h2>顧客一覧情報</h2>
+
+							<% @users. each do |user| %>
+							<p><%= user.name %></p>
+							<p><%= user.kana %></p>
+	                        <p><%= user.phone_number %></p>
+
+							<%= link_to "詳細", admin_user_path(user.id) %>
+                             <% end %>
+                         </div>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

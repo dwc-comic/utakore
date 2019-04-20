@@ -18,7 +18,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to " Home", admin_orders_index_path, class: "glyphicon glyphicon-home home" %></li>
             <li><%= link_to " 新規商品登録", admin_item_new_path, class: "glyphicon glyphicon-shooping-cart new_item" %></li>
-            <li><%= link_to " 顧客一覧", admin_users_index_path, class: "glyphicon glyphicon-user customer" %></li>
+            <li><%= link_to " 顧客一覧", admin_users_path, class: "glyphicon glyphicon-user customer" %></li>
             <li><%= link_to " logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %></li>
           </ul>
         <% else %>
