@@ -30,10 +30,7 @@ Rails.application.routes.draw do
     get 'orders/index'
     get 'orders/show'
     get 'orders/edit'
-    get 'item/new'
-    get 'item/index'
-    get 'item/show'
-    get 'item/edit'
+
     resources :users
     resources :orders
     resources :items
