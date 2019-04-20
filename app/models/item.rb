@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-	has_many :fovorites, dependent: :destroy
+	has_many :favorites, dependent: :destroy
 	has_many :cart_items, dependent: :destroy
 	has_many :order_items, dependent: :destroy
 	has_many :discs, inverse_of: :item

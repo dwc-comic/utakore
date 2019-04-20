@@ -12,17 +12,32 @@ class Admin::ItemsController < Admin::Base
   end
 
   def index
+    @items = Item.all
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to admin_item_path(item.id)
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to admin_items_path
   end
 
   private
   def item_params
-    params.require(:item).permit(:id, :title, :image, :artists, :lebel, :genre, :item_price, :stock,
+    params.require(:item).permit(:id, :title, :image, :artist_name, :lebel, :genre, :item_price, :stock,
                                  discs_attributes: [:id, :item_id, :disc_number, :_destroy,
                                  songs_attributes: [:id, :disc_id, :song_number, :song_name, :_destroy]])
   end
