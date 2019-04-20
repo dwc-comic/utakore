@@ -1,13 +1,29 @@
-<h1>User::Users#show</h1>
-<p>Find me in app/views/user/users/show.html.erb</p>
-<p><%= @user.name %></p>
-<p><%= @user.kana %></p>
-<p><%= @user.email %></p>
-<p><%= @user.phone_number %></p>
-<p><%= @user.postal_code%></p>
-<p><%= @user.home_address %></p>
-<p><%= @user.password %></p>
-
- <%=link_to "編集する", "edit_user_user(user.id)" %>
+<div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-user style-1 rounded has-shadow-1">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<table class="table table-striped">
+							     <div class="actions row">
+									<h1>個人情報詳細ページ</h1>
+									<p>Find me in app/views/user/users/show.html.erb</p>
+									<p><%= @user.name %></p>
+									<p><%= @user.kana %></p>
+									<p><%= @user.email %></p>
+									<p><%= @user.phone_number %></p>
+									<p><%= @user.postal_code%></p>
+									<p><%= @user.home_address %></p>
+									<p><%= @user.password %></p>
+ 									<%=link_to "編集", edit_user_user_path(@user.id) %>
+ 									<%= link_to 'ログアウト',  destroy_user_session_path, method: :delete %>
+ 									<%= link_to 'サインアップ', new_user_registration_path %>
+                                    <%= link_to 'ログイン', new_user_session_path %>
+		                         </div>
+							</table>
+					</div>
+			 </div>
+		</div>
+	</div>
+ </div>
 
 
