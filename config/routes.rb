@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'mains/top'
   get 'mains/about'
 
+
+
   namespace :user do
     get 'purchaces/index'
     get 'purchaces/pay'
@@ -36,8 +38,14 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show]
     resources :users
     resources :items, only: [:index, :show]
+    resources :carts, only: [:index]
 
-  end
+   post '/add_items' => 'carts#add_items'
+   post '/update_items' => 'carts#update_items'
+   delete '/delete_items' => 'carts#delete_items'
+end
+
+
 
   namespace :admin do
     get 'orders/index'
@@ -47,7 +55,8 @@ Rails.application.routes.draw do
     resources :users
     resources :orders
     resources :items
-  end
+end
+
+end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
