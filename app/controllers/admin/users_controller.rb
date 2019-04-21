@@ -1,5 +1,5 @@
  class Admin::UsersController < Admin::Base
-
+# protect_from_forgery except: :search # searchアクションを除外
    def new
     @user = User.new
   end
@@ -31,6 +31,11 @@
   def destroy
   	@user = User.find(params[:id])
   end
+
+  # def search
+  #   @user = User.where('name LIKE(?)', "%#{params[:keyword]}%")
+  #   redirect_to 'admin_users_path'
+  # end
 
   private
 

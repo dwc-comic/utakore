@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
   # devise_for :admins
+  devise_for :users, controllers: {
+  sessions:      'users/sessions',
+  passwords:     'users/passwords',
+  registrations: 'users/registrations'
+}
+  # devise_for :users, skip: :all
+  # devise_scope :user do
+  #   get 'users/log_in' => 'users/sessions#new', as: :new_user_session
+  #   post 'users/log_in' => 'users/sessions#create', as: :user_session
+  #   delete 'users/logout' => 'users/sessions#destroy', as: :destroy_user_session
+  #   get 'users/sign_up' => 'users/registrations#new', as: :new_user_registration
+  # end
+
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -35,10 +48,6 @@ Rails.application.routes.draw do
     resources :orders
     resources :items
   end
-  devise_for :users, controllers:{
-  sessions:      'users/sessions',
-  passwords:     'users/passwords',
-  registrations: 'users/registrations'
-}
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
