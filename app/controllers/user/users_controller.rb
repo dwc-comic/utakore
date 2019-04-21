@@ -25,6 +25,7 @@ class User::UsersController < User::Base
   end
 
   def destroy
+    redirect_to mains_top_path
   end
 
   private
