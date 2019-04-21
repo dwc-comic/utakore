@@ -1,2 +1,27 @@
-<h1>User::Carts#index</h1>
-<p>Find me in app/views/user/carts/index.html.erb</p>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="form-user style-1 rounded has-shadow-1">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<table class="table table-striped">
+						<div class="actions row">
+
+							<h2>カート一覧</h2>
+
+							<%= @cart_items. each do |item| %>
+							<p><%= cart_items.title %></p>
+							<p><%= items.artist_name %></p>
+	                        <p><%= items.item_price %> </p>
+	                        <%= attachment_image_tag @user, :items_image,format: 'jpeg', size: "100x100" %>
+	                        <%= link_to 'カートから削除', user_delete_items_path %>
+
+
+                             <% end %>
+                         </div>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
