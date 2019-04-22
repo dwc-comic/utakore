@@ -1,4 +1,10 @@
 <h1>お気に入り一覧</h1>
 <% @favorites.each do |favorite| %>
-	<%= favorite.item.title %>
+	<%= attachment_image_tag favorite.item, :image, :fill, 100, 100, format:'jpeg' %>
+	<p>タイトル : <%= favorite.item.title %></p>
+	<p>アーティスト名 : <%= favorite.item.artist_name %></p>
+	<p>価格 : <%= favorite.item.item_price %></p>
+	<%= link_to user_item_favorites_path(favorite.item), method: :delete do %>
+      お気に入りから削除
+    <% end %>
 <% end %>
