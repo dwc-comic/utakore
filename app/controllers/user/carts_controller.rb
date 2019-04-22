@@ -3,7 +3,8 @@ class User::CartsController < User::Base
 before_action :setup_cart_items!, only: [:add_items, :update_items, :delete_items]
 
 def index
-  	@cart = Cart.all
+    @cart = Cart.find
+  	@cart_items = @cart.cart_items(:items_id)
 end
 
 def add_item
