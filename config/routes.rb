@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :users
     resources :items, only: [:index, :show]
     resources :carts, only: [:index]
+    resource :favorites, only: [:create, :destroy]
 
    post '/add_items' => 'carts#add_items'
    post '/update_items' => 'carts#update_items'
