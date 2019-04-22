@@ -3,8 +3,16 @@ class User::CartsController < User::Base
 before_action :setup_cart_items!, only: [:add_items, :update_items, :delete_items]
 
 def index
-    @cart = Cart.find
-  	@cart_items = @cart.cart_items(:items_id)
+    @carts = Cart.all
+  	@cart_items = current_user.carts.last.cart_items
+    ## @cart.cart_items(:items_id)
+
+end
+
+def create
+  @carts = Cart.new
+  cart.save
+  redirect_to user_carts_path(cart.id)
 end
 
 def add_item
