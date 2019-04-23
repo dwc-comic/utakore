@@ -38,9 +38,9 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show]
     resources :users
     resources :items, only: [:index, :show] do
-      resource :favorites, only: [:index, :create, :destroy]
+     resource :favorites, only: [:index, :create, :destroy]
     end
-    resources :carts, only: [:index]
+    resources :carts, only: [:index, :create, :destroy]
 
    post '/add_items' => 'carts#add_items'
    post '/update_items' => 'carts#update_items'
