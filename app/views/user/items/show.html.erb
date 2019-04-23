@@ -19,9 +19,14 @@
 <% unless @cart %>
 <% end %>
 
-<%= form_for @cart_item, url: user_items_path do |f| %>
+<%= form_for @cart_item, url: user_carts_path do |f| %>
 <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: blue;"></i>
-<%= select_tag(:cart_quantity_id ) %>
+
+
+<%= f.submit '個数' %>
+<%= f.hidden_field :cart_id, :value => @item.id %>
+<%= f.text_field :cart_quantity%>
+
 <% end %>
 
 

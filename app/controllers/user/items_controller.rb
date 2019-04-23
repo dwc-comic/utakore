@@ -7,12 +7,34 @@ class User::ItemsController < User::Base
 	else
 		@items = Item.page(params[:page]).reverse_order
 	end
+
   end
+
 
   def show
   	@item = Item.find(params[:id])
     @cart_item = CartItem.new
+
   end
+
+
+   def new
+    @cart_item = CartItem.new
+  end
+
+  def create
+     @cart_item =  CartItem.new(cart_item_params)
+     cart_item.save(cart_item_params)
+     redirect_to user_orders_path(user.id)
+  end
+
+  private
+
+  def cart_item_params
+      sparam.require(:cart_item). permit(:id, :cart_id, :item_id, :quantity_id )
+  end
+
+
 end
 
 
