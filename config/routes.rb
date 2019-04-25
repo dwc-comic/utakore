@@ -24,8 +24,6 @@ Rails.application.routes.draw do
 
 
   namespace :user do
-    get 'purchaces/index'
-    get 'purchaces/pay'
     get 'inquerys/index'
     # get 'orders/index'
     # get 'orders/show'
@@ -36,7 +34,7 @@ Rails.application.routes.draw do
     # get 'items/index'
     # get 'items/show'
     resources :cart_items, only: [:create, :destroy]
-    resources :orders, only: [:index, :show]
+    resources :orders, only: [:new, :create, :index, :show]
     resources :users
     resources :items, only: [:index, :show, :create, ] do
      resource :favorites, only: [:index, :create, :destroy]
