@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :carts, dependent: :destroy
+  acts_as_paranoid
+
 
   def leave
     #leave_atに退会時刻を追記
