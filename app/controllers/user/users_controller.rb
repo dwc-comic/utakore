@@ -11,7 +11,7 @@ class User::UsersController < User::Base
   end
 
   def show
-  	@user = User.find_by(id: 2)
+  	@user = User.find(params[:id])
   end
 
   def edit
