@@ -13,7 +13,7 @@ def index
   def create
     @cart_item = CartItem.new(cart_item_params)
     cart_item .save(cart_item)
-    redirect_to user_orders_path(user.id)
+    redirect_to user_purchaces_index_path(user.id)
   end
 
   def destroy

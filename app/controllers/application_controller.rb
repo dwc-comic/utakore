@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
 helper_method :current_cart
 
+before_action :configure_permitted_parameters, if: :devise_controller?
 def current_cart
     if session[:cart_id]
       @cart = Cart.find(session[:cart_id])
