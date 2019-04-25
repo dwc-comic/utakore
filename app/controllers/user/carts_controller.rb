@@ -27,7 +27,7 @@ def create
    @cart_item.item_id = params[:cart_item][:cart_id].to_i
    @cart_item.cart_id = Cart.find_by(user_id:current_user.id).id
    @cart_item.save
-    redirect_touser_carts_path(:id)
+    redirect_to user_carts_path(:id)
 end
 
 
