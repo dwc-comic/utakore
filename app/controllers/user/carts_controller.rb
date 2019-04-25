@@ -6,7 +6,7 @@ def index
     @user = current_user
     @cart = Cart.find_by(user_id: @user.id)
     # @cart_items = CartItem.where(cart_id: @cart)
-
+    order = Order.new
 end
 
 
@@ -17,7 +17,7 @@ def new
 end
 
 def create
-
+   order = Order.new
    @cart = Cart.new
    @cart.user_id = current_user.id
    @cart.save

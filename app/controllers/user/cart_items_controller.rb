@@ -2,7 +2,7 @@ class User::CartItemsController < User::Base
 
 def index
     @user = current_user
-    @cart_item = CertsItems.where(user_id: @user)
+    @cart_item = CertsItem.where(user_id: @user)
   end
 
 
