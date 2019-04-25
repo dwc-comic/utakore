@@ -8,6 +8,8 @@ class Item < ApplicationRecord
 	has_many :tag_maps, dependent: :destroy
 	has_many :tags, through: :tag_maps
 	attachment :image
+	acts_as_paranoid
+
 
 
 
