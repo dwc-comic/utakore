@@ -32,7 +32,7 @@ def new
 
 
   def index
-      @order_item = OrderItems.all
+      @orders = Order.find(current_user[:id])
   end
 
   def show
