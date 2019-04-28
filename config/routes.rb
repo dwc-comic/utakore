@@ -4,35 +4,17 @@ Rails.application.routes.draw do
   sessions:      'users/sessions',
   passwords:     'users/passwords',
   registrations: 'users/registrations'
-}
-  # devise_for :users, skip: :all
-  # devise_scope :user do
-  #   get 'users/log_in' => 'users/sessions#new', as: :new_user_session
-  #   post 'users/log_in' => 'users/sessions#create', as: :user_session
-  #   delete 'users/logout' => 'users/sessions#destroy', as: :destroy_user_session
-  #   get 'users/sign_up' => 'users/registrations#new', as: :new_user_registration
-  # end
+  }
 
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
-}
+  }
   get 'mains/top'
   get 'mains/about'
 
-
-
   namespace :user do
-    get 'inquerys/index'
-    # get 'orders/index'
-    # get 'orders/show'
-    # get 'users/show'
-    # get 'users/edit'
-    get 'carts/index'
-    get 'favorites/index'
-    # get 'items/index'
-    # get 'items/show'
     resources :order_items, only: [:new, :create]
     resources :cart_items, only: [:create, :destroy]
     resources :orders, only: [:new, :create, :index, :show]
@@ -44,11 +26,7 @@ Rails.application.routes.draw do
     end
      resources :orders, only: [:new, :create, :index, :show] do
     end
-   post '/add_items' => 'carts#add_items'
-   post '/update_items' => 'carts#update_items'
-   delete '/delete_items' => 'carts#delete_items'
-end
-
+  end
 
 
   namespace :admin do
@@ -59,7 +37,7 @@ end
     resources :users
     resources :orders
     resources :items
-end
+  end
 
 end
 

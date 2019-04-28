@@ -2,10 +2,10 @@ class Cart < ApplicationRecord
 	belongs_to :user
 	has_many :cart_items, dependent: :destroy
 	has_many :item, through: :cart_items, dependent: :destroy
-
+    has_many :order, dependent: :destroy
     def add_item(item_id)
 
-		current_item = cart_items.find_by_item_id(item_id)
+		current_item = cart_items.find_by(cart_item :item_id)
 
 		if current_item
 			current_item.quantity += 1
@@ -16,7 +16,7 @@ class Cart < ApplicationRecord
 
 	end
 
-	def total_price(cart)
+	def get_total_price(cart)
 		cart.cart_items.to_a.sum { |item| item.total_price }
 	end
 
