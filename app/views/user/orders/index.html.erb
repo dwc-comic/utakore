@@ -1,3 +1,21 @@
 <h1>User::Orders#index</h1>
 <p>Find me in app/views/user/orders/index.html.erb</p>
 <p>注文履歴一覧</p>
+<table class="table table-hover table-inverse">
+			<tbody>
+				<thred>
+					<tr>
+						<th></th>
+						<th>タイトル</th>
+						<th>アーティスト名</th>
+						<th>価格</th>
+					</tr>
+					<% @orders.each do |order|%>
+					<tr>
+						<th><%= link_to order.created_at, user_item_path(item.id) %></th>
+						<th><%= item.total_price %></th>
+					</tr>
+					<% end %>
+				</thred>
+			</tbody>
+		</table>

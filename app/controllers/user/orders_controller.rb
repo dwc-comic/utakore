@@ -81,8 +81,7 @@ def index
    # end
 
 
-  def order_params
-      params.require(:order). permit( :user_id, :order_id, :total_price, :shipping_postal_code, :shipping_home_addres )
+
   end
 
   def order_item_params
