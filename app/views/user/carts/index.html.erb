@@ -19,8 +19,19 @@
 	                        	カートから削除
 　　　　　　　　　　　　　　　　<% end %>
 						   <% end %>
-						   総計：<%= (@cart.total_price(@cart)).to_i %>円
-						   <%= link_to '購入画面', new_user_order_path %>
+						   総計：  <p> <%= @cart.totalprice %> 円 </p>
+
+
+						   <% @order = Order.new  %>
+							<% unless @order %>
+							<% end %>
+
+							<%= form_for @order_item, url: user_orders_path(current_user) do |f| %>
+							<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: blue;"></i>
+
+
+							<%= f.submit '購入' %>
+							<% end %>
                     </div>
 				</div>
 			</div>
