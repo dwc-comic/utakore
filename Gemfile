@@ -72,3 +72,5 @@ gem 'payjp'
 gem 'paranoia'
 gem 'cocoon'
 
+gem 'pry-rails'
+

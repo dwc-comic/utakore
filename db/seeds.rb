@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Item.create(id:1, title:1, image_id:1,artist_name:1, lebel:1, genre:1, item_price:1, stock:1 )
+Disc.create(id:1,item_id:1)
+Song.create(id:1, disc_id:1, song_name:1 song_number:1)
