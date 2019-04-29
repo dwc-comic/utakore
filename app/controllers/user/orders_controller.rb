@@ -7,31 +7,23 @@ class User::OrdersController < User::Base
   end
 
   def create
-  	# orders = current_user.orders.where(deleted_at: nil)
-    # carts = current_user.carts
-    # cart.each do |cart|
-    cart = Cart.find_by(user_id:current_user.id).id
-    # cart.each do |cart|
-  	order = Order.new
-  	order.user_id = current_user.id
-  	order.cart_id = current_user.carts.last
-    order.shipping_postal_code = current_user.postal_code
-  	order.shipping_home_address = current_user.home_address
-  # 	#下にカートIDを保存するアクションを書く
-  # 	#order.order_id = params[:order_id]
-    order.save
+    order = Order.new
+      order.user_id = current_user.id
+      order.shipping_postal_code = current_user.postal_code
+      order.shipping_home_address = current_user.home_address
 
-
-  	#下記はorder_itemの保存
-     orders = Order.where(user_id: current_user.id)
-     orders.each do |order|
       order_item = OrderItem.new
-      cart = Cart.find_by(id: current_user.carts.last)
-  		order_item.order_id = current_user.carts.last
-      order_item.item_id = params[:item_id]
-      order_item.ordered_price =cart.cart_item
-      order_item.ordered_quanitiy = cart.cart_quantity
-      order_item.save
+       order_item.cart_id = current_user.carts.last
+       order_item.item_id = params[:order_item][:item_id]
+       order_item.ordered_quantity = params[:order_item][:ordered_quantity].to_i
+       order_item.save
+       item = Item.find_by(id: params[:cart_item][:item_id])
+       # #今ここ
+       #total_priceの保存がまだできていない
+       # order.total_price = cart.totalprice
+       # item.item_price * params[:cart_item][:cart_quantity].to_i
+       order.save
+
     end
       redirect_to user_orders_path(current_user)
   end
@@ -39,4 +31,9 @@ class User::OrdersController < User::Base
   def order_item_params
       params.require(:order_item). permit( :order_id, :item_id,  :ordered_price, :ordered_quantity )
   end
+
+  def order_params
+    params.require(:order).permit(:total_price, :shipping_postal_code, :shipping_home_address)
+   end
 end
+
