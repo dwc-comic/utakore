@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_04_28_051931) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total_price"
     t.integer "totalprice"
   end
 
@@ -67,13 +68,6 @@ ActiveRecord::Schema.define(version: 2019_04_28_051931) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "inquiries", force: :cascade do |t|
-    t.string "name"
-    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

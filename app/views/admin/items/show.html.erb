@@ -1,10 +1,20 @@
-<h1>登録商品詳細</h1>
-<p><%= attachment_image_tag @item, :image, :fill, 100, 100, format:'jpeg' %></p>
-<p><%= @item.title %></p>
-<p><%= @item.artist_name %></p>
-<p><%= @item.lebel %></p>
-<p><%= @item.genre %></p>
-<p><%= @item.item_price %>円</p>
-<p><%= @item.stock %>個</p>
-<%= link_to "編集",edit_admin_item_path(@item.id) %>
-<%= link_to "削除",admin_item_path(@item.id),method: :delete %>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4"><h2><%= link_to '受注履歴一覧', admin_orders_index_path %></h2>
+        <h2><%= link_to '登録商品一覧', admin_items_path %></h2>
+        <h2><%= link_to '顧客情報一覧', admin_users_path %></h2></div>
+		<div class="col-lg-6">
+			<h2 class="item_registration_show">登録商品詳細</h2>
+			<p><%= attachment_image_tag @item, :image, :fill, 200, 200, format:'jpeg' %></p>
+			<p class="explain_show"><%="タイトル : "%><%= @item.title %></p>
+			<p class="explain_show"><%="アーティスト名 : "%><%= @item.artist_name %></p>
+			<p class="explain_show"><%="レーベル : "%><%= @item.lebel %></p>
+			<p class="explain_show"><%="ジャンル : "%><%= @item.genre %></p>
+			<p class="explain_show"><%="値段 : "%><%= @item.item_price %>円</p>
+			<p class="explain_show"><%="在庫数 : "%><%= @item.stock %>個</p>
+			<%= link_to "編集",edit_admin_item_path(@item.id) %>
+			<%= link_to "削除",admin_item_path(@item.id),method: :delete %>
+		</div>
+		<div class="col-lg-2"></div>
+	</div>
+</div>

@@ -1,8 +1,10 @@
-<div class="container-fluid">
+<div class="container">
 	<h2 class="new_item_registration">登録商品一覧</h2>
 	<div class="row">
-	<div class="col-lg-1"></div>
-	<div class="col-lg-10">
+	<div class="col-lg-2"><h2><%= link_to '受注履歴一覧', admin_orders_index_path %></h2>
+        <h2><%= link_to '登録商品一覧', admin_items_path %></h2>
+        <h2><%= link_to '顧客情報一覧', admin_users_path %></h2></div>
+	<div class="col-lg-8">
 		<div class="row">
 			<% @items.each do |item| %>
 			<div class="col-lg-4">
@@ -17,6 +19,6 @@
 		</div>
 		<%= paginate @items, class: "paginate" %>
 	</div>
-	<div class="col-lg-1"></div>
+	<div class="col-lg-2"></div>
 	</div>
 </div>
