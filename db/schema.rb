@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(version: 2019_04_28_051931) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "total_price"
-    t.integer "totalprice"
+
+    t.integer "totalprice", default: 0
+
   end
 
   create_table "discs", force: :cascade do |t|
@@ -52,17 +53,6 @@ ActiveRecord::Schema.define(version: 2019_04_28_051931) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "disc_number"
-  end
-
-  create_table "domains", force: :cascade do |t|
-    t.string "name"
-    t.integer "phone_number"
-    t.string "email"
-    t.integer "postal_code"
-    t.string "home_address"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
