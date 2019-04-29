@@ -15,16 +15,13 @@
 <p>ジャンル : <%= @item.genre %></p>
 <p>在庫数 : <%= @item.stock %></p>
 
-<% @cart = Cart.new  %>
-<% unless @cart %>
-<% end %>
 
 <%= form_for @cart_item, url: user_carts_path do |f| %>
 <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: blue;"></i>
 
 
 <%= f.submit 'カート' %>
-<%= f.hidden_field :id, :value => @item.id %>
+<%= f.hidden_field :item_id, :value => @item.id %>
 <%= f.text_field :cart_quantity%>
 
 <% end %>

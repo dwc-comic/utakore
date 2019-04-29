@@ -16,15 +16,12 @@
 	                        <p><%=(cart_item.cart_quantity) %></p>
 
 	                        <%= link_to  user_cart_item_path(cart_item.id), method: :delete do %>
+
 	                        	カートから削除
 　　　　　　　　　　　　　　　　<% end %>
 						   <% end %>
-						   総計：  <p> <%= @cart.totalprice %> 円 </p>
+						   総計：  <p> <%= @cart.totalprice  %> 円 </p>
 
-
-						   <% @order = Order.new  %>
-							<% unless @order %>
-							<% end %>
 
 							<%= form_for @order_item, url: user_orders_path(current_user) do |f| %>
 							<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: blue;"></i>
