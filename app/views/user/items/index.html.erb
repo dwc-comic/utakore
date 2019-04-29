@@ -1,29 +1,29 @@
-<div class="col-xs-9">
-	<h2>うたコレ　商品一覧</h2>
-		<%= search_form_for @search, url: user_items_path do |f| %>
-	        <%= f.label :title_or_artist_name_cont, "検索" %>
-	        <%= f.search_field :title_or_artist_name_cont %>
-	        <%= f.submit "検索" %>
-	    <% end %>
-		<table class="table table-hover table-inverse">
-			<tbody>
-				<thred>
-					<tr>
-						<th></th>
-						<th>タイトル</th>
-						<th>アーティスト名</th>
-						<th>価格</th>
-					</tr>
-					<% @items.each do |item|%>
-					<tr>
-						<th><%= attachment_image_tag item, :image, :fill, 100,100, format: 'jpeg' %></th>
-						<th><%= link_to item.title, user_item_path(item.id) %></th>
-						<th><%= item.artist_name %></th>
-						<th><%= item.item_price %></th>
-					</tr>
-					<% end %>
-				</thred>
-			</tbody>
-		</table>
+<div class="container">
+	<h3 class="item_index">商品一覧</h3>
+	<div class="row">
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4">
+			<div class="search">
+			    <%= search_form_for @search, url: user_items_path do |f| %>
+			        <%= f.search_field :title_or_artist_name_cont, :placeholder => "キーワードを入力", class: "search_form" %>
+			        <%= f.submit "検索",class: "search_btn" %>
+			    <% end %>
+			</div>
+		</div>
+		<div class="col-lg-4"></div>
+	</div>
+	<div class="row">
+		<% @items.each do |item|%>
+		<div class="col-lg-4">
+			<p><%= link_to user_item_path(item.id) do %>
+				<%= attachment_image_tag item, :image, :fill, 200, 200, format:'jpeg' %>
+				<% end %></p>
+			<p class="explain_index"><%= item.title %></p>
+			<p class="explain_index"><%= item.artist_name %></p>
+			<p class="explain_index"><%= item.item_price %>円</p>
+		</div>
+		<% end %>
+	</div>
 </div>
+
 <%= paginate @items, class: "paginate" %>

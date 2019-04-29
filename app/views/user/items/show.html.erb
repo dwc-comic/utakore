@@ -1,43 +1,59 @@
-<h1>商品詳細</h1>
-<%= attachment_image_tag @item, :image, :fill, 100, 100, format:'jpeg' %>
-<p>アーティスト名 : <%= @item.artist_name %></p>
-<p>タイトル : <%= @item.title%></p>
-<p>収録曲</p>
-<% @item.discs.each do |disc| %>
-	<p>ディスク : <%= disc.disc_number %></p>
-		<% disc.songs.each do |song| %>
-			<p><%= song.song_number %>.
-			<%= song.song_name %></P>
-		<% end %>
-<% end %>
-<p>価格 : <%= @item.item_price %>円</p>
-<p>レーベル : <%= @item.lebel %></p>
-<p>ジャンル : <%= @item.genre %></p>
-<p>在庫数 : <%= @item.stock %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+    <h3 class=item_show>商品詳細</h3>
+    <%= attachment_image_tag @item, :image, :fill, 300, 300, format:'jpeg' %>
+    <p class="explain_user_item_show">アーティスト名 : <%= @item.artist_name %></p>
+    <p class="explain_user_item_show">タイトル : <%= @item.title%></p>
+    <% @item.discs.each do |disc| %>
+    	<p class="explain_user_item_show">ディスク : <%= disc.disc_number %></p>
+    		<% disc.songs.each do |song| %>
+    			<p class="explain_user_item_show"><%= song.song_number %>.
+    			<%= song.song_name %></P>
+    		<% end %>
+    <% end %>
+    <p class="explain_user_item_show">価格 : <%= @item.item_price %>円</p>
+    <p class="explain_user_item_show">レーベル : <%= @item.lebel %></p>
+    <p class="explain_user_item_show">ジャンル : <%= @item.genre %></p>
+    <p class="explain_user_item_show">在庫数 : <%= @item.stock %></p>
 
 
-<%= form_for @cart_item, url: user_carts_path do |f| %>
-<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: blue;"></i>
+    <% @cart = Cart.new  %>
+    <% unless @cart %>
+    <% end %>
+
+    <%= form_for @cart_item, url: user_carts_path do |f| %>
+    <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: blue;"></i>
 
 
 <%= f.submit 'カート' %>
 <%= f.hidden_field :item_id, :value => @item.id %>
 <%= f.text_field :cart_quantity%>
 
-<% end %>
+    <%= f.submit 'カート' %>
+    <%= f.hidden_field :id, :value => @item.id %>
+    <%= f.text_field :cart_quantity%>
 
-<% if @item.favorited_by?(current_user) %>
-  <li>
-    <%= link_to user_item_favorites_path(@item), method: :delete do %>
-      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-      <%= @item.favorites.count %> お気に入り
     <% end %>
-  </li>
-<% else %>
-  <li>
-    <%= link_to user_item_favorites_path(@item), method: :post do %>
-      <i class="fa fa-heart-o" aria-hidden="true"></i>
-      <%= @item.favorites.count %> お気に入り
+
+    <% if @item.favorited_by?(current_user) %>
+      <li>
+        <%= link_to user_item_favorites_path(@item), method: :delete do %>
+          <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+          <%= @item.favorites.count %> お気に入りから削除
+        <% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to user_item_favorites_path(@item), method: :post do %>
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+          <%= @item.favorites.count %> お気に入りに追加
+        <% end %>
+      </li>
     <% end %>
-  </li>
-<% end %>
+  </div>
+  <div class="col-lg-4"></div>
+  </div>
+</div>

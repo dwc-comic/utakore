@@ -43,7 +43,9 @@ ActiveRecord::Schema.define(version: 2019_04_28_051931) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
     t.integer "totalprice", default: 0
+
   end
 
   create_table "discs", force: :cascade do |t|

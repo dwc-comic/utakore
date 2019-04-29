@@ -4,7 +4,8 @@
       <div class="col-lg-3">
         <h2><%= link_to '受注履歴一覧', admin_orders_index_path %></h2>
         <h2><%= link_to '登録商品一覧', admin_items_path %></h2>
-        <h2><%= link_to '顧客情報一覧', admin_users_path %></h2></div>
+        <h2><%= link_to '顧客情報一覧', admin_users_path %></h2>
+      </div>
         <div class="col-lg-6">
           <div class="row">
             <%= form_for @item, url: admin_items_path do |f| %>

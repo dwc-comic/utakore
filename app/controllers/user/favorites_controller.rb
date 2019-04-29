@@ -16,6 +16,6 @@ class User::FavoritesController < User::Base
   	item = Item.find(params[:item_id])
   	favorite = current_user.favorites.find_by(item_id: item.id)
   	favorite.destroy
-  	redirect_back(fallback_location: user_favorites_index_path)
+  	redirect_back(fallback_location: user_item_path(item.id))
   end
 end
