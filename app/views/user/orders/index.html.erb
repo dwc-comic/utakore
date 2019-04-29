@@ -10,10 +10,8 @@
 						<th>アーティスト名</th>
 						<th>価格</th>
 					</tr>
-					<% @orders.each do |order|%>
+					<% @order.each do |order|%>
 					<tr>
-						<th><%= link_to order.created_at, user_item_path(item.id) %></th>
-						<th><%= item.total_price %></th>
 					</tr>
 					<% end %>
 				</thred>
