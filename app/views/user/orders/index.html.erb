@@ -1,26 +1,15 @@
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="form-user style-1 rounded has-shadow-1">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
-				    <div class="actions row">
-                             *************
-							<h2>注文商品一覧</h2>
-
-			 				<% @order.cart_items.each do | cart_item| %>
-
-							<p><%= attachment_image_tag order_item.item, :image, :fill, 100, 100, format:'jpeg' %></p>
-			 				<p>タイトル : <%= order_item.item.title %></p>
-							<p>アーティスト名 : <%= order_item.item.artist_name %></p>
-	                        <p>価格 : <%= order_item.item.item_price %></p>
-	                        <p><%=(order_item.ordered_quantity) %></p>
-
-
-							<% end %>
-                    </div>
-				</div>
-			</div>
+<div class="container">
+	<div class="row">
+		<h2 class="text">注文商品一覧</h2>
+		<% @order_items.each do | order_item| %>
+		<div class="col-lg-4">
+			<p class="text"><%= attachment_image_tag order_item. item, :image, :fill, 200, 200, format:'jpeg' %></p>
+			<p class="text">タイトル : <%= order_item.item.title %></p>
+			<p class="text">アーティスト名 : <%= order_item.item.artist_name %></p>
+			<p class="text">価格 : <%= order_item.item.item_price %></p>
+			<p class="text">購入数 <%= order_item.ordered_quantity  %></p>
 		</div>
+		 <% end %>
 	</div>
 </div>
 
