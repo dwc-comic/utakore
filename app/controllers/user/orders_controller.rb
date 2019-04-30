@@ -3,6 +3,8 @@ class User::OrdersController < User::Base
   def index
       @user = current_user
       @order = Order.where(user_id: @user.id)
+      @order_items = OrderItem.all
+      order = Order.find_by(user_id:current_user.id)
     # @order_items = CartItem.where(order_id: @order)
   end
 
